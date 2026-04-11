@@ -1,0 +1,24 @@
+{
+  "name": "recursion",
+  "version": "1.0.0",
+  "description": "Recursion project for The Odin Project course",
+  "main": "fibonacci.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdulRhmanHS/Recursion.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AbdulRhmanHS/Recursion/issues"
+  },
+  "homepage": "https://github.com/AbdulRhmanHS/Recursion#readme",
+  "devDependencies": {
+    "jest": "^30.3.0"
+  }
+}
