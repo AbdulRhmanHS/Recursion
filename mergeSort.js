@@ -1,35 +1,26 @@
 function mergeSort(arr) {
   const size = arr.length;
-  let divisionArray = [];
   let merged = [];
+  const mid = Math.floor(size / 2);
 
   // Dividing
   if (size <= 1) return arr;
-  if (size % 2 === 0) {
-    divisionArray.push(arr.slice(0, size / 2), arr.slice(size / 2, size));
-    divisionArray = divisionArray.map((division) => mergeSort(division));
-  } else {
-    divisionArray.push(
-      arr.slice(0, (size + 1) / 2),
-      arr.slice((size + 1) / 2, size),
-    );
-    divisionArray = divisionArray.map((division) => mergeSort(division));
-  }
+
+  const left = mergeSort(arr.slice(0, mid));
+  const right = mergeSort(arr.slice(mid));
 
   // Merging
   let i = 0;
   let j = 0;
-  while (i < divisionArray[0].length && j < divisionArray[1].length) {
-    if (divisionArray[0][i] <= divisionArray[1][j]) {
-      merged.push(divisionArray[0][i++]);
+  while (i < left.length && j < right.length) {
+    if (left[i] <= right[j]) {
+      merged.push(left[i++]);
     } else {
-      merged.push(divisionArray[1][j++]);
+      merged.push(right[j++]);
     }
   }
   // Append remaining elements
-  return merged
-    .concat(divisionArray[0].slice(i))
-    .concat(divisionArray[1].slice(j));
+  return merged.concat(left.slice(i)).concat(right.slice(j));
 }
 
 module.exports = { mergeSort };
